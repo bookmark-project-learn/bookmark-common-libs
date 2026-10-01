@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	redisMocks "github.com/bookmark-common-libs/pkg/redis"
+	redisMocks "github.com/bookmark-project-learn/bookmark-common-libs/pkg/redis"
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/assert"
 )

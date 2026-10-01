@@ -1,7 +1,7 @@
 package base62_helper
 
 import (
-	base62_lib "github.com/bookmark-common-libs/pkg/lib/base62"
+	base62_lib "github.com/bookmark-project-learn/bookmark-common-libs/pkg/lib/base62"
 )
 
 //go:generate mockery --name=Base62Helper --filename=base62.go --outpkg=mocks

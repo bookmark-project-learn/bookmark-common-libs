@@ -1,4 +1,4 @@
-module github.com/bookmark-common-libs
+module github.com/bookmark-project-learn/bookmark-common-libs
 
 go 1.26.4
 

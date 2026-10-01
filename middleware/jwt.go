@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	jwt_pkg "github.com/bookmark-common-libs/pkg/jwt"
+	jwt_pkg "github.com/bookmark-project-learn/bookmark-common-libs/pkg/jwt"
 	"github.com/gin-gonic/gin"
 )
 
