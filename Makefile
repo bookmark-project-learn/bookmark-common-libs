@@ -1,7 +1,7 @@
 .PHONY: test test-nocache
 
 # Coverage exclude files and directories out of report
-COVERAGE_EXCLUDE=mocks|main.go|test|config.go|infrastructure/**
+COVERAGE_EXCLUDE=mocks|main.go|test|config.go|pkg/response/**|pkg/request_ultils/**|pkg/redis/**|pkg/sqldb/**
 COVERAGE_THRESHOLD ?= 80
 
 # Process check run make test whether cache or no-cache

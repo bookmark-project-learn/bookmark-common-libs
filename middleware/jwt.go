@@ -35,6 +35,5 @@ func (j *JwtAuthMiddleware) JwtAuth() gin.HandlerFunc {
 		}
 		c.Set("claims", tokenClaims)
 		c.Next()
-
 	}
 }
