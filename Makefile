@@ -1,4 +1,4 @@
-.PHONY: test test-nocache
+.PHONY: test test-nocache deploy-module
 
 # Coverage exclude files and directories out of report
 COVERAGE_EXCLUDE=mocks|main.go|test|config.go|pkg/response/**|pkg/request_ultils/**|pkg/redis/**|pkg/sqldb/**
@@ -29,4 +29,12 @@ test:
 	fi
 
 test-nocache: test OPTION=nocache
+
+# Process publish new tag to proxy golang 
+GIT_TAG := $(shell git describe --tags --exact-match --abbrev=0 2>/dev/null)
+deploy-module:
+	@echo "Deploying module with tag: $(GIT_TAG)"
+	@GOPROXY=proxy.golang.org go list -m github.com/bookmark-project-learn/bookmark-common-libs@$(GIT_TAG)
+
+
 
