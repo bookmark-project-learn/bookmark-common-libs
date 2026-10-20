@@ -84,7 +84,7 @@ func TestRabbitMqReceiver_ConsumeOne(t *testing.T) {
 			tt.setup(mockConsumer, mockDelivery, ctx)
 
 			// Tạo instance của receiver, inject mock consumer vào trực tiếp field internal
-			receiver := rabbitmq.NewRabbitReceiverInstance(ctx, mockConsumer)
+			receiver := rabbitmq.NewRabbitReceiverInstance(mockConsumer)
 			// Chạy hàm kiểm thử ConsumeOne
 			err := receiver.ConsumeOne(ctx)
 

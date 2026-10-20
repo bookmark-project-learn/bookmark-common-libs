@@ -76,7 +76,7 @@ func TestRabbitMqSender_Publish(t *testing.T) {
 				OnPublish: tt.mockFn,
 			}
 			ctx := context.Background()
-			sender := rabbitmq.NewRabbitSenderInstance(ctx, mockPub)
+			sender := rabbitmq.NewRabbitSenderInstance(mockPub)
 
 			err := sender.Publish(ctx, tt.message)
 

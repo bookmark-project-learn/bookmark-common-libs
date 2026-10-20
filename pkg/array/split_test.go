@@ -3,7 +3,6 @@ package array
 import "testing"
 
 func TestSplitIntoBatches(t *testing.T) {
-
 	testCases := []struct {
 		name      string
 		input     []int
@@ -59,20 +58,30 @@ func TestSplitIntoBatches(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 			result := SplitIntoBatch(tc.input, tc.batchSize)
-			if len(result) != len(tc.expected) {
-				t.Fatalf("expected %d batches, got %d", len(tc.expected), len(result))
-			}
 
-			for i := range result {
-				if len(result[i]) != len(tc.expected[i]) {
-					t.Fatalf("expected batch %d to have %d elements, got %d", i, len(tc.expected[i]), len(result[i]))
-				}
-				for j := range result[i] {
-					if result[i][j] != tc.expected[i][j] {
-						t.Fatalf("expected batch %d element %d to be %d, got %d", i, j, tc.expected[i][j], result[i][j])
-					}
-				}
-			}
+			// Gọi hàm helper để kiểm tra tính chính xác của kết quả
+			assertBatchesEqual(t, tc.expected, result)
 		})
+	}
+}
+
+// assertBatchesEqual là hàm bổ trợ giúp so sánh kết quả mong đợi và thực tế.
+// Sử dụng t.Helper() để khi test fail sẽ trỏ chính xác về dòng gọi hàm trong TestSplitIntoBatches.
+func assertBatchesEqual(t *testing.T, expected, result [][]int) {
+	t.Helper()
+
+	if len(result) != len(expected) {
+		t.Fatalf("expected %d batches, got %d", len(expected), len(result))
+	}
+
+	for i := range result {
+		if len(result[i]) != len(expected[i]) {
+			t.Fatalf("expected batch %d to have %d elements, got %d", i, len(expected[i]), len(result[i]))
+		}
+		for j := range result[i] {
+			if result[i][j] != expected[i][j] {
+				t.Fatalf("expected batch %d element %d to be %d, got %d", i, j, expected[i][j], result[i][j])
+			}
+		}
 	}
 }

@@ -15,7 +15,7 @@ type RabbitMqReceiver struct {
 }
 
 // Close provides a mock function with no fields
-func (_m *RabbitMqReceiver) Close() error {
+func (_m *RabbitMqReceiver) Close(ctx context.Context) error {
 	return _m.rabbitMQMocker.Close()
 }
 
